@@ -1,0 +1,25 @@
+@startuml Visitor
+
+title Visitor Pattern
+left to right direction
+hide members
+
+interface Visitor
+class PessoaVisitor implements Visitor
+class PessoaVisitorJSON implements Visitor
+interface Pessoa <<interface>>
+class Curso
+class Aluno implements Pessoa
+Aluno --o "1" Curso
+Aluno ..> Visitor
+class Funcionario implements Pessoa
+Funcionario ..> Visitor
+class Professor implements Pessoa
+Professor ..> Visitor
+
+PessoaVisitor ..> Pessoa
+PessoaVisitor ..> Aluno
+PessoaVisitor ..> Funcionario
+PessoaVisitor ..> Professor
+
+@enduml
